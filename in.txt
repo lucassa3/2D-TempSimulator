@@ -1,0 +1,26 @@
+Insira abaixo seus dados de entrada na seguinte ordem:
+
+- tamanho das dimensões da placa quadrada,
+- intervalo (em cm) de distancia em que os pontos serão pegos para analise,
+- limite de tempo,
+- intervalo de tempo em que os pontos serão pegos para análise,
+- difusividade térmica
+- temperatura inicial das bordas
+- temperatura inicial do centro
+- Indicação com True ou False se a borda esta isolada ou não:
+	-> Right
+	-> Left
+	-> Top
+	-> Bottom
+____________________________________________________________________________
+insira os dados abaixo:
+0.5
+0.125
+200
+0.001
+1
+0
+False
+False
+False
+True
