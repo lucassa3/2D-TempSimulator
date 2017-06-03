@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Created on Thu May 11 15:35:44 2017
 
@@ -50,6 +50,14 @@ for i in range(0, 26):
             fixed_border_d = True
         else:
             fixed_border_d = False
+    elif i == 26:
+        old_tempo_u = float(entrada[i])
+#    elif i == 27:
+#        old_tempo_d = float(entrada[i])
+#    elif i == 28:
+#        old_tempo_l = float(entrada[i])
+#    elif i == 29:
+#        old_tempo_r = float(entrada[i])
 
 time = linspace(0,time_limit,(time_limit/time_step)+1) #lista com os tempos de simulacao
 dist = linspace(0,length,(length/dist_step)+1) #lista com as distancias lineares dos pontos
@@ -63,14 +71,18 @@ lambda_const = ((term_difus*time_step)/(dist_step*dist_step)) #equivalente ao F0
 for i in range(0,int(length/dist_step+1)):
     for j in range(0,int(length/dist_step+1)):
         old_tempo[i][j] = center_temp
-        if i == 0:
-             old_tempo[i][j] = 100 #borda superior vale 100 graus
-        if i == length/dist_step:
-            old_tempo[i][j] = 0 #borda inferior vale 0
-        if j == 0:
-            old_tempo[i][j] = 75 #borda esq vale 75
-        if j == length/dist_step:
-            old_tempo[i][j] = 50 #borda dir vale 50
+        if fixed_border_u == False:
+            if i == 0:
+                 old_tempo[i][j] = 100 #borda superior vale 100 graus
+        if fixed_border_d == False:
+            if i == len(old_tempo)-1:
+                old_tempo[i][j] = 0 #borda inferior vale 0
+        if fixed_border_l == False:
+            if j == 0:
+                old_tempo[i][j] = 75 #borda esq vale 75
+        if fixed_border_r == False:
+            if j == len(old_tempo)-1:
+                old_tempo[i][j] = 50 #borda dir vale 50
 
 count = 1
 
@@ -103,6 +115,5 @@ for k in range(0,len(time)):
 
 plt.imshow(new_tempo, cmap='bwr', interpolation='nearest')
 plt.show()
-    
-    
+print(new_tempo)
     
