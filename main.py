@@ -7,6 +7,7 @@ Created on Thu May 11 15:35:44 2017
 
 from numpy import linspace
 import matplotlib.pyplot as plt
+#test commmit
 
 length = 50
 dist_step = 5
